@@ -1,0 +1,218 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Uzman - İzolasyon ve Yalıtım</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Profesyonel inşaat, yalıtım ve yapı hizmetleri.">
+    <meta name="keywords" content="inşaat, izolasyon, yapı, yalıtım, constra">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="~/lib/animate/animate.min.css" rel="stylesheet" />
+    <link href="~/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link href="~/lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="~/css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner"
+         class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="visually-hidden">Yükleniyor...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+    <!-- Topbar Start -->
+    <div class="container-fluid topbar d-none d-xl-block w-100">
+        <div class="row gx-0 align-items-center" style="height: 45px;">
+            <div class="col-lg-6 text-center text-lg-start mb-lg-0">
+                <div class="d-flex flex-wrap">
+                    <a href="#" class="text-muted me-4">
+                        <i class="fas fa-map-marker-alt text-secondary me-2"></i>Adresimiz
+                    </a>
+                    <a href="tel:+905363558031" class="text-muted me-4">
+                        <i class="fas fa-phone-alt text-secondary me-2"></i>0536 355 80 31
+                    </a>
+                    <a href="mailto:uzmanizolasyonveyalitim.com" class="text-muted me-0">
+                        <i class="fas fa-envelope text-secondary me-2"></i>uzmanizolasyonveyalitim.com
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center text-lg-end">
+                <div class="d-flex align-items-center justify-content-end">
+                    <a href="#" class="text-muted me-3">
+                        <i class="fas fa-clock text-secondary me-2"></i>Pzr - Cmt 07:00 - 21:30,
+                    </a>
+                    <a href="#" class="btn btn-primary btn-square border border-white me-2"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="btn btn-primary btn-square border border-white me-2"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="btn btn-primary btn-square border border-white me-2"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="btn btn-primary btn-square border border-white"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+    <!-- Navbar Start -->
+    <div class="container-fluid sticky-top px-0">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 px-4">
+            <a href="/Home/Index" class="navbar-brand p-0">
+                <img src="~/img/galeri/LOGO.png" alt="Logo" width="150" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto pt-2 pt-lg-0">
+                    <a href="/Home/Index" class="nav-item nav-link active">AnaSayfa</a>
+                    <a href="/Home/hakkimizda" class="nav-item nav-link">Hakkımızda</a>
+                    <a href="/Services/Index" class="nav-item nav-link">Hizmetlerimiz</a>
+                    <a href="/Proje/Index" class="nav-item nav-link">projelerimiz</a>
+                    <a href="/Blog/Index" class="nav-item nav-link">Blog</a>                 
+                    <a href="/Home/iletisim" class="nav-item nav-link">İletişim</a>
+                    <a href="tel:+905363558031" class="btn btn-secondary py-2 px-4 ms-3">Hemen Ara</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+    <!-- Search Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content rounded-0">
+                <div class="modal-header">
+                    <h4 class="modal-title mb-0" id="exampleModalLabel">Search by keyword</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex align-items-center">
+                    <div class="input-group w-75 mx-auto">
+                        <input type="search" class="form-control p-3" placeholder="keywords">
+                        <span class="input-group-text p-3"><i class="fa fa-search"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Search Modal End -->
+    <!-- İçerik -->
+    @RenderBody()
+
+    <!-- Footer Start -->
+    <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <img src="~/img/galeri/LOGO.png" alt="Logo" width="150" /> 
+                        <p>
+                            Sektördeki tecrübemiz ve uzman kadromuzla; ısı, su, ses ve yangın yalıtımında kalıcı çözümler üretiyoruz. Doğru malzeme ve kusursuz işçilik anlayışımızla yapılarınızı koruyor, yaşam alanlarınıza konfor ve değer katıyoruz.
+                        </p>
+                        <div class="position-relative mx-auto">
+                            <input class="form-control w-100 py-3 ps-4 pe-5" type="text"
+                                   placeholder="Enter your email">
+                            <button type="button"
+                                    class="btn btn-secondary position-absolute top-0 end-0 py-2 mt-2 me-2">
+                                Üye Ol
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="text-white mb-4">Hızlı Bağlantılarımız</h4>
+                        <a href="/Home/Index"><i class="fas fa-angle-right me-2"></i> AnaSayfa</a>
+                        <a href="/Services/Index"><i class="fas fa-angle-right me-2"></i> Hizmetlerimiz</a>
+                        <a href="/Home/hakkimizda"><i class="fas fa-angle-right me-2"></i> Hakkımızda</a>
+                        <a href="/Blog/Index"><i class="fas fa-angle-right me-2"></i> Blog</a>
+                        <a href="/Home/iletisim"><i class="fas fa-angle-right me-2"></i> İletişim</a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="text-white mb-4">Bazı Hizmetlerimiz</h4>
+                        <a href="/Services/beton_silim"><i class="fas fa-angle-right me-2"></i>Beton Silim</a>
+                        <a href="/Services/singil_cati"><i class="fas fa-angle-right me-2"></i>Şıngıl Çatı</a>
+                        <a href="/Services/bohcalama_izolasyon"><i class="fas fa-angle-right me-2"></i>Bohçalama İzolasyon</a>
+                        <a href="/Services/epoksi_kaplama"><i class="fas fa-angle-right me-2"></i>Epoksi Kaplama</a>
+                        <a href="/Services/poliuretan_surme"><i class="fas fa-angle-right me-2"></i>Poliüretan Sürme</a>
+                        <a href="/Services/cati_yalitimi"><i class="fas fa-angle-right me-2"></i>Çatı Yalıtımı</a>
+                        <a href="/Services/yangin_yalitimi"><i class="fas fa-angle-right me-2"></i>Yangın Yalıtımı</a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="text-white mb-4">İletişim Belgeleri</h4>
+                        <a href="#"><i class="fa fa-map-marker-alt me-2"></i> Esenyurt, İstanbul, Türkiye</a>
+                        <a href="mailto:uzmanizolasyonveyalitim.com"><i class="fas fa-envelope me-2"></i>uzmanizolasyonveyalitim.com</a>
+                        <a href="tel:+905363558031"><i class="fas fa-phone me-2"></i>0536 355 80 31</a>                  
+                        <div class="footer-btn d-flex align-items-center mt-3">
+                            <a class="btn btn-secondary btn-md-square me-2" href="#">
+                                <i class="fab fa-facebook-f text-white"></i>
+                            </a>
+                            <a class="btn btn-secondary btn-md-square me-2" href="#">
+                                <i class="fab fa-twitter text-white"></i>
+                            </a>
+                            <a class="btn btn-secondary btn-md-square me-2" href="#">
+                                <i class="fab fa-instagram text-white"></i>
+                            </a>
+                            <a class="btn btn-secondary btn-md-square" href="#">
+                                <i class="fab fa-linkedin-in text-white"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+    <!-- Copyright -->
+    <div class="container-fluid copyright py-4">
+        <div class="container text-center">
+            <span class="text-body">
+                <a href="/Home/Index" class="border-bottom text-white">
+                    <i class="fas fa-copyright text-light me-2"></i>Uzman İzolasyon ve Yalitim
+                </a>, All rights reserved.
+            </span>
+           
+        </div>
+    </div>
+    <!-- Copyright End -->
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-secondary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/wow/wow.min.js"></script>
+    <script src="~/lib/easing/easing.min.js"></script>
+    <script src="~/lib/waypoints/waypoints.min.js"></script>
+    <script src="~/lib/counterup/counterup.min.js"></script>
+    <script src="~/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="~/lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="~/js/main.js"></script>
+</body>
+</html>
