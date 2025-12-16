@@ -8,5 +8,10 @@ namespace Uzman_Izolasyon_ve_Yalitim.Controllers
         {
             return View();
         }
+        [Route("halkali-paladyen-silim")]
+        public IActionResult halkali_paladyen_silim()
+        {
+            return View();
+        }
     }
 }
