@@ -3,6 +3,73 @@
     ViewData["Title"] = "Index";
 }
 
+<style>
+    .service-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        transition: transform 0.3s, box-shadow 0.3s;
+        height: 100%;
+    }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+    /* 1. DÜZELTME: Yüksekliği 250px'den 400px'e çıkardık ki buton sığsın */
+    .service-img {
+        height: 400px;
+        width: 100%;
+        overflow: hidden;
+    }
+
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+    .service-item:hover .service-img img {
+        transform: scale(1.05);
+    }
+
+    .service-content {
+        background: rgba(0, 35, 91, 0.9); /* Arka planı biraz daha koyu yaptım, yazı okunsun */
+        color: white;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.3s;
+        /* İçeriği dikeyde ortalamak için flex ekledik */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .service-item:hover .service-content {
+        opacity: 1;
+    }
+
+    /* 2. DÜZELTME: Mavi kutu içindeki ikonu küçülttük (120px çok büyüktü) */
+    .service-content .btn-xl-square {
+        width: 80px !important;
+        height: 80px !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+
+        .service-content .btn-xl-square i {
+            font-size: 2rem; /* İkonun kendisini de küçülttük */
+        }
+</style>
 <!-- Services Start -->
 <div class="container-fluid service bg-light pb-5">
     <div class="container pb-5">
@@ -374,7 +441,7 @@
                         </div>
                         <a href="/Services/otopark_silim" class="d-block fs-4 my-4">otopark silim</a>
                         <p class="text-white mb-4">Dayanıklı, toz tutmayan ve uzun ömürlü otopark zeminleri için profesyonel silim uygulaması. İstanbul başta olmak üzere tüm Türkiye’de uzman ekiplerle hizmet veriyoruz.</p>
-                        <a class="btn btn-secondary py-2 px-4" href="/Services/yangin_yalitimi">Detay</a>
+                        <a class="btn btn-secondary py-2 px-4" href="/Services/otopark_silim">Detay</a>
                     </div>
                     <div class="service-tytle">
                         <div class="d-flex align-items-center justify-content-start ps-4 w-100">
@@ -422,7 +489,7 @@
                         </div>
                         <a href="/Services/beton_parlatma" class="d-block fs-4 my-4">beton_parlatma</a>
                         <p class="text-white mb-4">Beton zeminlerin parlak, sert ve uzun ömürlü hale getirilmesi için modern parlatma sistemleriyle İstanbul merkezli Türkiye geneli hizmet veriyoruz.</p>
-                        <a class="btn btn-secondary py-2 px-4" href="/Services/yangin_yalitimi">Detay</a>
+                        <a class="btn btn-secondary py-2 px-4" href="/Services/beton_parlatma">Detay</a>
                     </div>
                     <div class="service-tytle">
                         <div class="d-flex align-items-center justify-content-start ps-4 w-100">
@@ -446,7 +513,7 @@
                         </div>
                         <a href="/Services/fabrika_silim" class="d-block fs-4 my-4">fabrika silim</a>
                         <p class="text-white mb-4">Fabrika zeminlerinin yenilenmesi, güçlendirilmesi ve tozsuz hale getirilmesi için uzman silim uygulaması. İstanbul ağırlıklı Türkiye çapında profesyonel hizmet sunuyoruz.</p>
-                        <a class="btn btn-secondary py-2 px-4" href="/Services/yangin_yalitimi">Detay</a>
+                        <a class="btn btn-secondary py-2 px-4" href="/Services/fabrika_silim">Detay</a>
                     </div>
                     <div class="service-tytle">
                         <div class="d-flex align-items-center justify-content-start ps-4 w-100">

@@ -1,0 +1,317 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    /* Galeri Kutusu */
+    .uzman-galeri-container {
+        display: grid;
+        /* DEĞİŞİKLİK 1: Yan yana 4 tane (eskiden 6 idi) */
+        grid-template-columns: repeat(4, 1fr);
+        /* DEĞİŞİKLİK 2: Aralarındaki boşluğu artırdık (20px yaptık) */
+        gap: 20px;
+        margin-top: 20px;
+        padding: 10px; /* Kenarlardan da biraz boşluk olsun */
+    }
+
+    /* Her bir resim kutusu */
+    .galeri-item {
+        position: relative;
+        width: 100%;
+        height: 250px; /* Yükseklik sabit, böylece hepsi hizalı durur */
+        overflow: hidden;
+        cursor: pointer;
+        border-radius: 8px; /* Köşeleri biraz daha yumuşattım */
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Hafif gölge ekledim, şık dursun */
+        border-bottom: 4px solid #0056b3;
+        transition: transform 0.3s ease;
+    }
+
+        /* Resmin Kendisi */
+        .galeri-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Resmi kutuya tam oturtur */
+            display: block;
+        }
+
+        /* Üzerine gelince büyüme efekti */
+        .galeri-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+    /* Resim üzerindeki yazı */
+    .overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        text-align: center;
+        padding: 10px;
+        font-weight: bold;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .galeri-item:hover .overlay {
+        opacity: 1;
+    }
+
+    /* MOBİL VE TABLET AYARLARI */
+    /* Laptop ekranlarında (küçük ekran) 3'lü olsun */
+    @@media (max-width: 1200px) {
+        .uzman-galeri-container {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+    /* Tablet ve Telefondan girenler 2'li görsün (çok küçük olmasın) */
+    @@media (max-width: 768px) {
+        .uzman-galeri-container {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+    }
+
+    /* LIGHTBOX (Aynı kalabilir) */
+    #lightbox {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.9);
+        justify-content: center;
+        align-items: center;
+    }
+
+    #buyuk-resim {
+        max-width: 90%;
+        max-height: 90%;
+        border: 2px solid #ff6600;
+        box-shadow: 0 0 20px rgba(255, 102, 0, 0.5);
+    }
+
+    .kapat-btn {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        color: white;
+        font-size: 40px;
+        cursor: pointer;
+    }
+
+    .galeri-baslik-3 {
+        border-left: 5px solid #ff6600; /* Sol Turuncu Çubuk */
+        padding-left: 15px;
+        margin: 40px 0 30px 0;
+    }
+
+        .galeri-baslik-3 h2 {
+            font-size: 34px;
+            color: #222;
+            margin: 0;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .galeri-baslik-3 small {
+            display: block; /* Alt satıra indir */
+            font-size: 16px;
+            color: #0056b3; /* Mavi */
+            font-weight: 600;
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+</style>
+<div class="galeri-baslik-3">
+    <small>GÖRSEL GALERİ</small>
+    <h2>Yaptığımız İşler,<br>Kalitemizin Teminatıdır.</h2>
+</div>
+<div class="uzman-galeri-container">
+
+    <div class="galeri-item">
+        <img src="/img/galeri/galeri1.jpeg" alt="İzolasyon ve yalıtım" loading="lazy" onclick="acResim(this)">
+        <div class="overlay">Uzman İzolasyon ve Yalıtım</div>
+    </div>
+    <div class="galeri-item">
+        <img src="/img/galeri/galeri2.jpeg" alt="İzolasyon ve yalıtım" loading="lazy" onclick="acResim(this)">
+        <div class="overlay">Uzman İzolasyon ve Yalıtım</div>
+    </div>
+
+    <div class="galeri-item">
+        <img src="/img/galeri/galeri3.jpeg" alt="İzolasyon ve yalıtım" loading="lazy" onclick="acResim(this)">
+        <div class="overlay">Uzman İzolasyon ve Yalıtım</div>
+    </div>
+
+    <div class="galeri-item">
+        <img src="/img/galeri/galeri4.jpeg" alt="İzolasyon ve yalıtım" loading="lazy" onclick="acResim(this)">
+        <div class="overlay">Uzman İzolasyon ve Yalıtım</div>
+    </div>
+
+    <div class="galeri-item">
+        <img src="/img/galeri/galeri5.jpeg" alt="İzolasyon ve yalıtım" loading="lazy" onclick="acResim(this)">
+        <div class="overlay">Uzman İzolasyon ve Yalıtım</div>
+    </div>
+
+    <div class="galeri-item">
+        <img src="/img/galeri/galeri6.jpeg" alt="İzolasyon ve yalıtım" loading="lazy" onclick="acResim(this)">
+        <div class="overlay">Uzman İzolasyon ve Yalıtım</div>
+    </div>
+
+    <div class="galeri-item">
+        <img src="/img/galeri/galeri7.jpeg" alt="İzolasyon ve yalıtım" loading="lazy" onclick="acResim(this)">
+        <div class="overlay">Uzman İzolasyon ve Yalıtım</div>
+    </div>
+
+    <div class="galeri-item">
+        <img src="/img/galeri/galeri8.jpeg" alt="İzolasyon ve yalıtım" loading="lazy" onclick="acResim(this)">
+        <div class="overlay">Uzman İzolasyon ve Yalıtım</div>
+    </div>
+    <div class="galeri-item">
+        <img src="/img/galeri/galeri9.jpeg" alt="İzolasyon ve yalıtım" loading="lazy" onclick="acResim(this)">
+        <div class="overlay">Uzman İzolasyon ve Yalıtım</div>
+    </div>
+
+    <div class="galeri-item">
+        <img src="/img/galeri/galeri10.jpeg" alt="İzolasyon ve yalıtım" loading="lazy" onclick="acResim(this)">
+        <div class="overlay">Uzman İzolasyon ve Yalıtım</div>
+    </div>
+
+    <div class="galeri-item">
+        <img src="/img/galeri/galeri11.jpeg" alt="İzolasyon ve yalıtım" loading="lazy" onclick="acResim(this)">
+        <div class="overlay">Uzman İzolasyon ve Yalıtım</div>
+    </div>
+
+    <div class="galeri-item">
+        <img src="/img/galeri/galeri12.jpeg" alt="İzolasyon ve yalıtım" loading="lazy" onclick="acResim(this)">
+        <div class="overlay">Uzman İzolasyon ve Yalıtım</div>
+    </div>
+   
+    <div class="galeri-item">
+        <img src="/img/galeri/galeri14.jpeg" alt="İzolasyon ve yalıtım" loading="lazy" onclick="acResim(this)">
+        <div class="overlay">Uzman İzolasyon ve Yalıtım</div>
+    </div>
+
+    <div class="galeri-item">
+        <img src="/img/galeri/galeri15.jpeg" alt="İzolasyon ve yalıtım" loading="lazy" onclick="acResim(this)">
+        <div class="overlay">Uzman İzolasyon ve Yalıtım</div>
+    </div>
+
+    <div class="galeri-item">
+        <img src="/img/galeri/galeri16.jpeg" alt="İzolasyon ve yalıtım" loading="lazy" onclick="acResim(this)">
+        <div class="overlay">Uzman İzolasyon ve Yalıtım</div>
+    </div>
+
+    <div class="galeri-item">
+        <img src="/img/galeri/galeri17.jpeg" alt="İzolasyon ve yalıtım" loading="lazy" onclick="acResim(this)">
+        <div class="overlay">Uzman İzolasyon ve Yalıtım</div>
+    </div>
+
+    <div class="galeri-item">
+        <img src="/img/galeri/galeri18.jpeg" alt="İzolasyon ve yalıtım" loading="lazy" onclick="acResim(this)">
+        <div class="overlay">Uzman İzolasyon ve Yalıtım</div>
+    </div>
+
+    <div class="galeri-item">
+        <img src="/img/galeri/galeri19.jpeg" alt="İzolasyon ve yalıtım" loading="lazy" onclick="acResim(this)">
+        <div class="overlay">Uzman İzolasyon ve Yalıtım</div>
+    </div>
+
+    <div class="galeri-item">
+        <img src="/img/galeri/galeri20.jpeg" alt="İzolasyon ve yalıtım" loading="lazy" onclick="acResim(this)">
+        <div class="overlay">Uzman İzolasyon ve Yalıtım</div>
+    </div>
+
+    <div class="galeri-item">
+        <img src="/img/galeri/galeri21.jpeg" alt="İzolasyon ve yalıtım" loading="lazy" onclick="acResim(this)">
+        <div class="overlay">Uzman İzolasyon ve Yalıtım</div>
+    </div>
+
+    <div class="galeri-item">
+        <img src="/img/galeri/galeri22.jpeg" alt="İzolasyon ve yalıtım" loading="lazy" onclick="acResim(this)">
+        <div class="overlay">Uzman İzolasyon ve Yalıtım</div>
+    </div>
+
+    <div class="galeri-item">
+        <img src="/img/galeri/galeri23.jpeg" alt="İzolasyon ve yalıtım" loading="lazy" onclick="acResim(this)">
+        <div class="overlay">Uzman İzolasyon ve Yalıtım</div>
+    </div>
+
+    <div class="galeri-item">
+        <img src="/img/galeri/galeri24.jpeg" alt="İzolasyon ve yalıtım" loading="lazy" onclick="acResim(this)">
+        <div class="overlay">Uzman İzolasyon ve Yalıtım</div>
+    </div>
+
+    <div class="galeri-item">
+        <img src="/img/galeri/galeri25.jpeg" alt="İzolasyon ve yalıtım" loading="lazy" onclick="acResim(this)">
+        <div class="overlay">Uzman İzolasyon ve Yalıtım</div>
+    </div>
+
+
+
+    <div class="galeri-item">
+        <img src="/img/galeri/galeri27.jpeg" alt="İzolasyon ve yalıtım" loading="lazy" onclick="acResim(this)">
+        <div class="overlay">Uzman İzolasyon ve Yalıtım</div>
+    </div>
+
+    <div class="galeri-item">
+        <img src="/img/galeri/galeri28.jpeg" alt="İzolasyon ve yalıtım" loading="lazy" onclick="acResim(this)">
+        <div class="overlay">Uzman İzolasyon ve Yalıtım</div>
+    </div>
+
+    <div class="galeri-item">
+        <img src="/img/galeri/galeri29.jpeg" alt="İzolasyon ve yalıtım" loading="lazy" onclick="acResim(this)">
+        <div class="overlay">Uzman İzolasyon ve Yalıtım</div>
+    </div>
+
+    <div class="galeri-item">
+        <img src="/img/galeri/galeri30.jpeg" alt="İzolasyon ve yalıtım" loading="lazy" onclick="acResim(this)">
+        <div class="overlay">Uzman İzolasyon ve Yalıtım</div>
+    </div>
+
+    <div class="galeri-item">
+        <img src="/img/galeri/galeri31.jpeg" alt="İzolasyon ve yalıtım" loading="lazy" onclick="acResim(this)">
+        <div class="overlay">Uzman İzolasyon ve Yalıtım</div>
+    </div>
+
+    <div class="galeri-item">
+        <img src="/img/galeri/galeri32.jpeg" alt="İzolasyon ve yalıtım" loading="lazy" onclick="acResim(this)">
+        <div class="overlay">Uzman İzolasyon ve Yalıtım</div>
+    </div>
+
+    <div class="galeri-item">
+        <img src="/img/galeri/galeri33.jpeg" alt="İzolasyon ve yalıtım" loading="lazy" onclick="acResim(this)">
+        <div class="overlay">Uzman İzolasyon ve Yalıtım</div>
+    </div>
+
+
+
+
+
+   
+</div>
+
+<div id="lightbox" onclick="kapatResim()">
+    <span class="kapat-btn">&times;</span>
+    <img id="buyuk-resim" src="">
+</div>
+
+<script>
+    function acResim(element) {
+        var lightbox = document.getElementById("lightbox");
+        var buyukResim = document.getElementById("buyuk-resim");
+
+        buyukResim.src = element.src;
+        lightbox.style.display = "flex";
+    }
+
+    function kapatResim() {
+        document.getElementById("lightbox").style.display = "none";
+    }
+</script>

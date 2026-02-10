@@ -1,7 +1,73 @@
 ﻿@{
     ViewData["Title"] = "Uzman İzolasyon ve Yalıtım - Ana Sayfa";
 }
+<style>
+    .service-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        transition: transform 0.3s, box-shadow 0.3s;
+        height: 100%;
+    }
 
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+    /* 1. DÜZELTME: Yüksekliği 250px'den 400px'e çıkardık ki buton sığsın */
+    .service-img {
+        height: 400px;
+        width: 100%;
+        overflow: hidden;
+    }
+
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+    .service-item:hover .service-img img {
+        transform: scale(1.05);
+    }
+
+    .service-content {
+        background: rgba(0, 35, 91, 0.9); /* Arka planı biraz daha koyu yaptım, yazı okunsun */
+        color: white;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.3s;
+        /* İçeriği dikeyde ortalamak için flex ekledik */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .service-item:hover .service-content {
+        opacity: 1;
+    }
+
+    /* 2. DÜZELTME: Mavi kutu içindeki ikonu küçülttük (120px çok büyüktü) */
+    .service-content .btn-xl-square {
+        width: 80px !important;
+        height: 80px !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+
+        .service-content .btn-xl-square i {
+            font-size: 2rem; /* İkonun kendisini de küçülttük */
+        }
+</style>
 <!-- Carousel Start -->
 <div class="container-fluid overflow-hidden px-0">
     <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
@@ -190,11 +256,11 @@
                         <div class="bg-secondary btn-xl-square mx-auto" style="width: 120px; height: 120px;">
                             <i class="fas fa-box text-primary fa-4x"></i>
                         </div>
-                        <a href="#" class="d-block fs-4 my-4">Bohçalama İzolasyon</a>
+                        <a href="/Services/bohcalama_izolasyon" class="d-block fs-4 my-4">Bohçalama İzolasyon</a>
                         <p class="text-white mb-4">
                             Bohçalama izolasyon ile yapı derzleri, boru geçişleri ve kritik bağlantı noktalarında su ve hava sızıntılarına karşı yoğun koruma sağlıyoruz. Malzeme seçimi proje koşullarına göre (poliüretan, mastik, sızdırmaz bant vb.) belirlenir.
                         </p>
-                        <a class="btn btn-secondary py-2 px-4" href="#">Detay</a>
+                        <a class="btn btn-secondary py-2 px-4" href="/Services/bohcalama_izolasyon">Detay</a>
                     </div>
                     <div class="service-tytle">
                         <div class="d-flex align-items-center ps-4 w-100">
@@ -216,9 +282,9 @@
                         <div class="bg-secondary btn-xl-square mx-auto" style="width: 120px; height: 120px;">
                             <i class="fas fa-mountain text-primary fa-4x"></i>
                         </div>
-                        <a href="#" class="d-block fs-4 my-4">Şıngıl Çatı Uygulamaları</a>
+                        <a href="/Services/singil_cati" class="d-block fs-4 my-4">Şıngıl Çatı Uygulamaları</a>
                         <p class="text-white mb-4">Şıngıl kaplama çatı sistemleri için doğru eğim, buhar kesici ve su yalıtım katmanlarıyla birleşik çözümler sunuyoruz; estetik ve dayanıklılık ön planda.</p>
-                        <a class="btn btn-secondary py-2 px-4" href="#">Detay</a>
+                        <a class="btn btn-secondary py-2 px-4" href="/Services/singil_cati">Detay</a>
                     </div>
                     <div class="service-tytle">
                         <div class="d-flex align-items-center justify-content-start ps-4 w-100">
@@ -230,7 +296,82 @@
                     </div>
                 </div>
             </div>
+            <!-- Beton Silim -->
+            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="service-item">
+                    <div class="service-img">
+                        <img src="~/img/galeri/beton_silim.png" class="img-fluid w-100" alt="Beton Silim">
+                    </div>
+                    <div class="service-content text-center p-4">
+                        <div class="bg-secondary btn-xl-square mx-auto" style="width: 120px; height: 120px;">
+                            <i class="fas fa-industry text-primary fa-4x"></i>
+                        </div>
+                        <a href="/Services/beton_silim" class="d-block fs-4 my-4">Beton Silim</a>
+                        <p class="text-white mb-4">
+                            Beton yüzeyleri pürüzsüzleştirir, parlatır ve dayanıklılığını artırır. Tozumasız, estetik ve uzun ömürlü zemin çözümleri sunar.
+                        </p>
+                        <a class="btn btn-secondary py-2 px-4" href="/Services/beton_silim">Detay</a>
+                    </div>
+                    <div class="service-tytle">
+                        <div class="d-flex align-items-center ps-4 w-100">
+                            <h4>Beton Silim</h4>
+                        </div>
+                        <div class="btn-xl-square bg-secondary p-4" style="width: 80px; height: 80px;">
+                            <i class="fas fa-industry text-primary fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Epoksi Kaplama -->
+            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
+                <div class="service-item">
+                    <div class="service-img">
+                        <img src="~/img/galeri/epoksi_kaplama.png" class="img-fluid w-100" alt="Epoksi Kaplama">
+                    </div>
+                    <div class="service-content text-center p-4">
+                        <div class="bg-secondary btn-xl-square mx-auto" style="width: 120px; height: 120px;">
+                            <i class="fas fa-fill-drip text-primary fa-4x"></i>
+                        </div>
+                        <a href="/Services/epoksi_kaplama" class="d-block fs-4 my-4">Epoksi Kaplama</a>
+                        <p class="text-white mb-4">Endüstriyel ve dekoratif zeminlerde hijyenik, dayanıklı ve estetik bir yüzey sağlar. Kaymaz, çizilmez ve kolay temizlenir.</p>
+                        <a class="btn btn-secondary py-2 px-4" href="/Services/epoksi_kaplama">Detay</a>
+                    </div>
+                    <div class="service-tytle">
+                        <div class="d-flex align-items-center justify-content-start ps-4 w-100">
+                            <h4>Epoksi Kaplama</h4>
+                        </div>
+                        <div class="btn-xl-square bg-secondary p-4" style="width: 80px; height: 80px;">
+                            <i class="fas fa-fill-drip text-primary fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Asansör Kuyu İzolasyonu -->
+            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
+                <div class="service-item">
+                    <div class="service-img">
+                        <img src="~/img/galeri/asansor_kuyu_izolasyonu.png" class="img-fluid w-100" alt="Asansör Kuyu İzolasyonu">
+                    </div>
+                    <div class="service-content text-center p-4">
+                        <div class="bg-secondary btn-xl-square mx-auto" style="width: 120px; height: 120px;">
+                            <i class="fas fa-building text-primary fa-4x"></i>
+                        </div>
+                        <a href="/Services/asansor_kuyu_izolasyonu" class="d-block fs-4 my-4">Asansör Kuyu İzolasyonu</a>
+                        <p class="text-white mb-4">Yeraltı suyu ve nem sızıntılarını önleyerek asansör kuyusunu korur. Güvenli, su geçirmez ve kalıcı izolasyon sağlar.</p>
+                        <a class="btn btn-secondary py-2 px-4" href="/Services/asansor_kuyu_izolasyonu">Detay</a>
+                    </div>
+                    <div class="service-tytle">
+                        <div class="d-flex align-items-center justify-content-start ps-4 w-100">
+                            <h4>Asansör Kuyu İzolasyonu</h4>
+                        </div>
+                        <div class="btn-xl-square bg-secondary p-4" style="width: 80px; height: 80px;">
+                            <i class="fas fa-building text-primary fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
                 <div class="service-item">
                     <div class="service-img">
@@ -240,9 +381,9 @@
                         <div class="bg-secondary btn-xl-square mx-auto" style="width: 120px; height: 120px;">
                             <i class="fas fa-bricks text-primary fa-4x"></i>
                         </div>
-                        <a href="#" class="d-block fs-4 my-4">Kiremit Çatı İzolasyonu</a>
+                        <a href="/Services/kiremit_cati" class="d-block fs-4 my-4">Kiremit Çatı İzolasyonu</a>
                         <p class="text-white mb-4">Kiremit çatılarda ısı ve su izolasyonunu güçlendirir, alt katman koruması ve havalandırma ile çatının ömrünü uzatırız. Uygulama sonrası garantili kontroller sunulur.</p>
-                        <a class="btn btn-secondary py-2 px-4" href="#">Detay</a>
+                        <a class="btn btn-secondary py-2 px-4" href="/Services/kiremit_cati">Detay</a>
                     </div>
                     <div class="service-tytle">
                         <div class="d-flex align-items-center justify-content-start ps-4 w-100">
@@ -265,9 +406,9 @@
                         <div class="bg-secondary btn-xl-square mx-auto" style="width: 100px; height: 100px;">
                             <i class="fas fa-water text-primary fa-4x"></i>
                         </div>
-                        <a href="#" class="d-block fs-4 my-4">Teras İzolasyonu</a>
+                        <a href="/Services/teras_izolasyon" class="d-block fs-4 my-4">Teras İzolasyonu</a>
                         <p class="text-white mb-4">Teraslarda doğru katmanlama (buhar kesici, izolasyon, eğim ve yüzey kaplaması) ile su girişlerini engelliyor; kullanım ömrünü ve konforu artırıyoruz.</p>
-                        <a class="btn btn-secondary py-2 px-4" href="#">Detay</a>
+                        <a class="btn btn-secondary py-2 px-4" href="/Services/teras_izolasyon">Detay</a>
                     </div>
                     <div class="service-tytle">
                         <div class="d-flex align-items-center justify-content-start ps-4 w-100">
@@ -290,9 +431,9 @@
                         <div class="bg-secondary btn-xl-square mx-auto" style="width: 100px; height: 100px;">
                             <i class="fas fa-stream text-primary fa-4x"></i>
                         </div>
-                        <a href="#" class="d-block fs-4 my-4">Membran Çatı Uygulamaları</a>
+                        <a href="/Services/membran_cati" class="d-block fs-4 my-4">Membran Çatı Uygulamaları</a>
                         <p class="text-white mb-4">EPDM, TPO ve PVC membranlar ile profesyonel uygulama; teras ve düz çatı yüzeylerinde yüksek performanslı su yalıtımı sağlar.</p>
-                        <a class="btn btn-secondary py-2 px-4" href="#">Detay</a>
+                        <a class="btn btn-secondary py-2 px-4" href="/Services/membran_cati">Detay</a>
                     </div>
                     <div class="service-tytle">
                         <div class="d-flex align-items-center justify-content-start ps-4 w-100">
@@ -315,9 +456,9 @@
                         <div class="bg-secondary btn-xl-square mx-auto" style="width: 100px; height: 100px;">
                             <i class="fas fa-fill text-primary fa-4x"></i>
                         </div>
-                        <a href="#" class="d-block fs-4 my-4">Poliüretan Sürme İzolasyon</a>
+                        <a href="/Services/poliuretan_surme" class="d-block fs-4 my-4">Poliüretan Sürme İzolasyon</a>
                         <p class="text-white mb-4">Sıçan, poliüretan esaslı sürme izolasyon ile çatılarda ve teraslarda sökülmeden uygulama; yüzeye tam aderans ve esnek koruma sağlar.</p>
-                        <a class="btn btn-secondary py-2 px-4" href="#">Detay</a>
+                        <a class="btn btn-secondary py-2 px-4" href="/Services/poliuretan_surme">Detay</a>
                     </div>
                     <div class="service-tytle">
                         <div class="d-flex align-items-center justify-content-start ps-4 w-100">
@@ -340,9 +481,9 @@
                         <div class="bg-secondary btn-xl-square mx-auto" style="width: 120px; height: 120px;">
                             <i class="fas fa-paint-roller text-primary fa-4x"></i>
                         </div>
-                        <a href="#" class="d-block fs-4 my-4">Sürme İzolasyon</a>
+                        <a href="/Services/surme_izolasyon" class="d-block fs-4 my-4">Sürme İzolasyon</a>
                         <p class="text-white mb-4">Esnek kaplama sistemleri ile detaylarda sızdırmazlık; çatlak köprülerini kapatma ve su yalıtımı performansını arttırma amaçlı uygulamalar.</p>
-                        <a class="btn btn-secondary py-2 px-4" href="#">Detay</a>
+                        <a class="btn btn-secondary py-2 px-4" href="/Services/surme_izolasyon">Detay</a>
                     </div>
                     <div class="service-tytle">
                         <div class="d-flex align-items-center ps-4 w-100">
@@ -365,9 +506,9 @@
                         <div class="bg-secondary btn-xl-square mx-auto" style="width: 120px; height: 120px;">
                             <i class="fas fa-home text-primary fa-4x"></i>
                         </div>
-                        <a href="#" class="d-block fs-4 my-4">Dış Cephe Mantolama</a>
+                        <a href="/Services/dis_cephe_mantolama" class="d-block fs-4 my-4">Dış Cephe Mantolama</a>
                         <p class="text-white mb-4">Isı yalıtımı için mantolama; enerji tasarrufu, dış cephe estetiği ve iç mekân konforunu birlikte sağlar. Uygulama sonrası ısı tasarruf analiz raporu sunulur.</p>
-                        <a class="btn btn-secondary py-2 px-4" href="#">Detay</a>
+                        <a class="btn btn-secondary py-2 px-4" href="/Services/dis_cephe_mantolama">Detay</a>
                     </div>
                     <div class="service-tytle">
                         <div class="d-flex align-items-center justify-content-start ps-4 w-100">
@@ -390,9 +531,9 @@
                         <div class="bg-secondary btn-xl-square mx-auto" style="width: 120px; height: 120px;">
                             <i class="fas fa-umbrella text-primary fa-4x"></i>
                         </div>
-                        <a href="#" class="d-block fs-4 my-4">Çatı Yalıtımı</a>
+                        <a href="/Services/cati_yalitimi" class="d-block fs-4 my-4">Çatı Yalıtımı</a>
                         <p class="text-white mb-4">Isı, su ve akustik performansı bir arada sağlayan çatı çözümleri. Mevcut çatılarda güçlendirme veya yeni uygulamalarla tam koruma.</p>
-                        <a class="btn btn-secondary py-2 px-4" href="#">Detay</a>
+                        <a class="btn btn-secondary py-2 px-4" href="/Services/cati_yalitimi">Detay</a>
                     </div>
                     <div class="service-tytle">
                         <div class="d-flex align-items-center justify-content-start ps-4 w-100">
@@ -415,9 +556,9 @@
                         <div class="bg-secondary btn-xl-square mx-auto" style="width: 120px; height: 120px;">
                             <i class="fas fa-volume-mute text-primary fa-4x"></i>
                         </div>
-                        <a href="#" class="d-block fs-4 my-4">Ses Yalıtımı</a>
+                        <a href="/Services/ses_yalitimi" class="d-block fs-4 my-4">Ses Yalıtımı</a>
                         <p class="text-white mb-4">İç mekan akustiği ve komşu gürültülerine karşı yapıların performansını artırıyoruz. Duvar, tavan ve döşeme çözümleri mevcuttur.</p>
-                        <a class="btn btn-secondary py-2 px-4" href="#">Detay</a>
+                        <a class="btn btn-secondary py-2 px-4" href="/Services/ses_yalitimi">Detay</a>
                     </div>
                     <div class="service-tytle">
                         <div class="d-flex align-items-center ps-4 w-100">
@@ -434,15 +575,15 @@
             <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
                 <div class="service-item">
                     <div class="service-img">
-                        <img src="~/img/galeri/yyangin_yalitimi.png" class="img-fluid w-100" alt="Yangın Yalıtımı">
+                        <img src="~/img/galeri/yangin_yalitimi.png" class="img-fluid w-100" alt="Yangın Yalıtımı">
                     </div>
                     <div class="service-content text-center p-4">
                         <div class="bg-secondary btn-xl-square mx-auto" style="width: 120px; height: 120px;">
                             <i class="fas fa-fire-extinguisher text-primary fa-4x"></i>
                         </div>
-                        <a href="#" class="d-block fs-4 my-4">Yangın Yalıtımı</a>
+                        <a href="/Services/yangin_yalitimi" class="d-block fs-4 my-4">Yangın Yalıtımı</a>
                         <p class="text-white mb-4">Yangına dayanıklı malzemeler ve uygulamalarla yapı elemanlarının yangın süresini uzatıyor ve bina güvenliğini arttırıyoruz.</p>
-                        <a class="btn btn-secondary py-2 px-4" href="#">Detay</a>
+                        <a class="btn btn-secondary py-2 px-4" href="/Services/yangin_yalitimi">Detay</a>
                     </div>
                     <div class="service-tytle">
                         <div class="d-flex align-items-center justify-content-start ps-4 w-100">
@@ -454,34 +595,31 @@
                     </div>
                 </div>
             </div>
-
             <!-- 12 -->
-            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
+            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
                 <div class="service-item">
                     <div class="service-img">
-                        <img src="~/img/galeri/temel_ve_zemin_izolasyonu.png" class="img-fluid w-100" alt="Temel ve Zemin İzolasyonu">
+                        <img src="~/img/galeri/otopark_silim.png" class="img-fluid w-100" alt="otopark silim">
                     </div>
                     <div class="service-content text-center p-4">
                         <div class="bg-secondary btn-xl-square mx-auto" style="width: 120px; height: 120px;">
-                            <i class="fas fa-project-diagram text-primary fa-4x"></i>
+                            <i class="fas fa-fire-extinguisher text-primary fa-4x"></i>
                         </div>
-                        <a href="#" class="d-block fs-4 my-4">Temel & Zemin İzolasyonu</a>
-                        <p class="text-white mb-4">Temel ve zeminlerde nem ve suya karşı koruyucu uygulamalar; yapının taşıyıcı elemanlarını ve iç mekan konforunu güvence altına alır.</p>
-                        <a class="btn btn-secondary py-2 px-4" href="#">Detay</a>
+                        <a href="/Services/otopark_silim" class="d-block fs-4 my-4">otopark silim</a>
+                        <p class="text-white mb-4">Dayanıklı, toz tutmayan ve uzun ömürlü otopark zeminleri için profesyonel silim uygulaması. İstanbul başta olmak üzere tüm Türkiye’de uzman ekiplerle hizmet veriyoruz.</p>
+                        <a class="btn btn-secondary py-2 px-4" href="/Services/otopark_silim">Detay</a>
                     </div>
                     <div class="service-tytle">
                         <div class="d-flex align-items-center justify-content-start ps-4 w-100">
-                            <h4>Temel & Zemin İzolasyonu</h4>
+                            <h4>otopark silim</h4>
                         </div>
                         <div class="btn-xl-square bg-secondary p-4" style="width: 80px; height: 80px;">
-                            <i class="fas fa-project-diagram text-primary fa-2x"></i>
+                            <i class="fas fa-fire-extinguisher text-primary fa-2x"></i>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.2s">
-                <a class="btn btn-secondary py-3 px-5 mt-4" href="/hizmetler">Tüm İzolasyon Hizmetleri</a>
-            </div>
+            
         </div>
     </div>
 </div>
